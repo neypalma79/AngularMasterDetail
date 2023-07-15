@@ -1,0 +1,23 @@
+<div>
+  <ul id="listaProductos">
+    <li
+      *ngFor="
+        let producto of productos;
+        let i = index;
+        let isFirst = first;
+        let isLast = last;
+        let isOdd = odd;
+        let isEven = even
+      "
+      id="itemProducto"
+      class="item"
+      [ngClass]="{ itemPar: isEven, itemImpar: isOdd }"
+    >
+      {{ i }}-{{ producto.nombre }}---{{ isFirst }}---{{ isLast }}---{{
+        isOdd
+      }}---{{ isEven }}
+    </li>
+  </ul>
+</div>
+
+<app-detail></app-detail>
