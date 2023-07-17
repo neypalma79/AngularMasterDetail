@@ -1,5 +1,5 @@
 <div>
-  <ul id="listaProductos">
+  <!--  <ul id="listaProductos">
     <li
       *ngFor="
         let producto of productos;
@@ -17,7 +17,26 @@
         isOdd
       }}---{{ isEven }}
     </li>
-  </ul>
+  </ul> -->
+  <table class="tableStyle">
+    <thead>
+      <th>Nombre</th>
+      <th>Descripcion</th>
+      <th>Precio</th>
+    </thead>
+    <tbody>
+      <tr
+        class="item"
+        *ngFor="let producto of productos; let isOdd = odd; let isEven = even"
+        [ngClass]="{ itemPar: isEven, itemImpar: isOdd }"
+      >
+        <td id="itemProducto">{{ producto.nombre }}</td>
+        <td id="itemProducto">{{ producto.descripcion }}</td>
+        <td id="itemProducto">{{ producto.precio }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
-<app-detail></app-detail>
+<app-detail (onNuevoProducto)="agregarMasterProducto($event)"></app-detail>
+<!-- publicador/suscriptor-->

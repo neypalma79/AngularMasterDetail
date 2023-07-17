@@ -6,7 +6,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./detail.component.sass'],
 })
 export class DetailComponent {
+  @Output()
+  public onNuevoProducto: EventEmitter<Producto> = new EventEmitter();
+
   public productoAgregar: Producto = { nombre: '', descripcion: '', precio: 0 };
+
+  public grabarProducto(): void {
+    console.info(this.productoAgregar);
+    this.onNuevoProducto.emit(this.productoAgregar);
+  }
 }
 
 interface Producto {

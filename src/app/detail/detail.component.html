@@ -1,21 +1,26 @@
-<form>
+<form (ngSubmit)="grabarProducto()">
   <table>
     <tr>
       <td>Nombre:</td>
       <td>
-        <input type="text" />
+        <input type="text" [(ngModel)]="productoAgregar.nombre" name="nombre" />
+        <!-- input type="text" [value]={{productoAgregar.nombre}} (input)=onCambioNombreProducto($event)-->
       </td>
     </tr>
     <tr>
       <td>Descripcion:</td>
       <td>
-        <input type="text" />
+        <input
+          type="text"
+          [(ngModel)]="productoAgregar.descripcion"
+          name="descripcion"
+        />
       </td>
     </tr>
     <tr>
       <td>Precio:</td>
       <td>
-        <input type="text" />
+        <input type="text" [(ngModel)]="productoAgregar.precio" name="precio" />
       </td>
     </tr>
     <tr>
